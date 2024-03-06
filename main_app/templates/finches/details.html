@@ -1,20 +1,18 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Finch List</h1>
+<h1>Finch Details</h1>
 
-{% for finch in finches %}
 <div class="card">
-  <a href="{% url 'details' finch.id %}">
   <div class="card-content">
-    <!-- Use double curly braces to render variable values -->
     <span class="card-title">{{ finch.name }}</span>
+
     <p>Description: {{ finch.description|linebreaks }}</p>
     {% if finch.age > 0 %}
     <p>Age: {{ finch.age }}</p>
     {% else %}
-    <p>Age: Not adoptable yet</p>
+    <p>Age: Too Young</p>
     {% endif %}
   </div>
-</a>
 </div>
-{% endfor %} {% endblock %}
+
+{% endblock %}
